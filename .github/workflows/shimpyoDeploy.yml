@@ -23,8 +23,10 @@ jobs:
 
     - name: Make application.properties
       run: |
-        touch ./src/main/application.yml
-        echo "${{ secrets.PROPERTIES }}" > ./src/main/application.yml
+        touch ./src/main/resources/application.yml
+        touch ./src/test/resources/application.yml
+        echo "${{ secrets.PROPERTIES }}" > ./src/main/resources/application.yml
+        echo "${{ secrets.TEST_PROPERTIES }}" > ./src/test/resources/application.yml
 
     - name: Docker compose
       run: |
