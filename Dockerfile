@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk11
+FROM adoptopenjdk/openjdk17
 CMD ["./gradlew", "clean", "package"]
 ARG JAR_FILE_PATH=target/*.jar
 COPY ${JAR_FILE_PATH} app.jar
