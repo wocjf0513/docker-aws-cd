@@ -28,13 +28,6 @@ jobs:
         echo "${{ secrets.PROPERTIES }}" > ./application.properties
       shell: bash
 
-    - name: upload application
-      uses: actions/upload-artifact@v3
-      with:
-        name: application.yml
-        path: ./src/main/resources/application.yml
-
-
     - name: Docker compose
       run: |
         docker-compose up -d  
@@ -57,8 +50,8 @@ jobs:
     - name: Docker build & push to docker repo
       run: |
         docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-        docker build -f Dockerfile -t ${{ secrets.DOCKER_REPO }}/directors-dev .
-        docker push ${{ secrets.DOCKER_REPO }}/directors-dev
+        docker build -f Dockerfile -t ${{ secrets.DOCKER_REPO }} .
+        docker push ${{ secrets.DOCKER_REPO }}
 
     - name: Deploy to server
       uses: appleboy/ssh-action@master
