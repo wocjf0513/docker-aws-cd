@@ -35,6 +35,7 @@ jobs:
     - name: Make snippets folder
       run: |
         mkdir -p ./build/generated-snippets   
+        cd ./build/generated-snippets
         pwd
 
     - name: Build with Gradle
