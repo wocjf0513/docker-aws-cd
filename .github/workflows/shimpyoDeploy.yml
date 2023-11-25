@@ -28,6 +28,10 @@ jobs:
         echo "${{ secrets.PROPERTIES }}" > ./application.properties
       shell: bash
 
+    - name: Docker compose
+      run: |
+        docker-compose up -d  
+
     - name: Build with Gradle
       run: |
         chmod +x ./gradlew
