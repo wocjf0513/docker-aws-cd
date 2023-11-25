@@ -3,8 +3,6 @@ services:
   shimpyo-db:
     container_name: shimpyo-db
     image: mariadb:10
-    env_file:
-      - .env
     environment:
       - MARIADB_ROOT_PASSWORD=root
       - MARIADB_DATABASE=shimpyo
